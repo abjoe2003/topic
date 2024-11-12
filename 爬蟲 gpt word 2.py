@@ -74,9 +74,9 @@ def process_url():
             page_content = response.text
 
             # 根据标题动态生成 GPT 请求内容
-            gpt_prompt = "請提取並重新整理與公司介紹相關的信息，並且用以下結構組織內容：\n\n"
+            gpt_prompt = "請針對以下標題從網頁內容中提取相關信息，並以正式的語氣撰寫每個段落。請包括具體數據和事實，並保持語句簡潔流暢：\n\n"
             for i, title in enumerate(titles):
-                gpt_prompt += f"{i+1}. {title}: 提取與此標題相關的資訊。\n"
+                gpt_prompt += f"{i+1}. {title}: 提取與此標題相關的重點資訊，並簡單列出要點。\n"
             gpt_prompt += f"\n原始網頁內容如下：\n\n{page_content}"
 
             # 调用 OpenAI 的 ChatCompletion 接口
